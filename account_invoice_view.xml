@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+   
+    <record id="view_invoice_supplier_form_inherit" model="ir.ui.view">
+    	<field name="name">account.invoice.supplier.form</field>
+    	<field name="model">account.invoice</field>
+    	<field name="inherit_id" ref="account.invoice_supplier_form"/>
+    	<field name="arch" type="xml">
+		    <xpath expr="//sheet//div[@class='oe_title']" position="before">
+		    	<div class="oe_right oe_button_box" name="import_buttons">
+	        		<button class="oe_inline oe_stat_button" string="Moves" type="object" name="view_related_stock_moves" icon="fa-arrows-v" attrs="{'invisible':[('type','!=','in_refund')]}">
+	        		<field name="move_count" widget="statinfo" string=" " attrs="{'invisible':[('move_count','=',0)]}"/></button>
+	        	</div>
+	        </xpath>
+	        <xpath expr="//button[@name='invoice_open']" position="after">
+	        	<button name="%(action_confirm_location_movement)d" string="Supplier refund with Stock movement" type="action" class="oe_hightlight" states="draft,proforma2" attrs="{'invisible':['|',('type','in',['in_invoice','out_invoice','out_refund'])]}"/>
+	        </xpath>
+	        <xpath expr="//form[@string='Supplier Invoice']/header//button[@name='invoice_open']" position="after">
+	        	<button name="invoice_open_two" states="draft,proforma2" string="Supplier refund w/o Stock movement" class="oe_highlight" groups="account.group_account_invoice" attrs="{'invisible':['|',('type','in',['in_invoice','out_invoice','out_refund'])]}" type="object"/>
+	        </xpath>
+	        <xpath expr="//form[@string='Supplier Invoice']/header//button[@name='invoice_open']" position="attributes">
+	        	<attribute name="attrs">{'invisible':['|',('type','=','in_refund')]}</attribute>
+	        </xpath>
+	        <xpath expr="//field[@name='date_due']" position="after">
+	        	<field name="stock_move_ids" invisible="1"/>
+	        </xpath>
+            </field>
+    </record>
+    </data>
+</openerp>

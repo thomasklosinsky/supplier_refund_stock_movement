@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+    <record id="view_stock_move_form_inherit" model="ir.ui.view">
+    	<field name="name">view.stock.move.form.inherit</field>
+    	<field name="model">stock.move</field>
+    	<field name="inherit_id" ref="stock.view_move_form"/>
+    	<field name="arch" type="xml">
+	        <xpath expr="//field[@name='name']" position="after">
+	        	<field name="type" invisible="1"/>
+	        	<field name="refund_invoice_id" attrs="{'invisible':[('type','!=','in_refund')]}"/>
+	        </xpath>
+            </field>
+    </record>
+    
+     <record id="view_stock_move_tree_inherit" model="ir.ui.view">
+    	<field name="name">view.stock.move.tree.inherit</field>
+    	<field name="model">stock.move</field>
+    	<field name="inherit_id" ref="stock.view_move_tree"/>
+    	<field name="arch" type="xml">
+	        <xpath expr="//field[@name='picking_id']" position="replace">
+	        	<field name="refund_invoice_id"/>
+	        </xpath>
+            </field>
+    </record>
+    
+    <!-- <record id="action_stock_movement" model="ir.actions.act_window">
+	    <field name="name">Stock Movements</field>
+	    <field name="res_model">stock.move</field>
+	    <field name="view_type">form</field>
+	    <field name="view_mode">tree,form</field>
+	    <field name="view_id" ref="view_stock_move_tree_inherit"/>
+	</record> -->
+    </data>
+</openerp>
