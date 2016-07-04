@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+    <record id="view_wizard_stock_locations" model="ir.ui.view">
+    	<field name="name">view.wizard.stock.locations</field>
+    	<field name="model">stock.movement.locations</field>
+    	<field name="arch" type="xml">
+			<form string="Confirm Locations">
+				<group>
+					<field name="source_location_id"/>
+					<field name="destination_location_id"/>
+				</group>
+				<button name="confirmed_location" type="object" string="Confirm Locations" class="oe_highlight"/>
+				<button string="Cancel" class="btn-default" special="cancel"/>
+			</form>
+		</field>
+    </record>
+    
+    <record id="action_confirm_location_movement" model="ir.actions.act_window">
+	    <field name="name">Confirm Locations</field>
+	    <field name="res_model">stock.movement.locations</field>
+	    <field name="view_type">form</field>
+	    <field name="view_mode">form</field>
+	    <field name="view_id" ref="view_wizard_stock_locations"/>
+	    <field name="target">new</field>
+	</record>
+    
+    </data>
+</openerp>
