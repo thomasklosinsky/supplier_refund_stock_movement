@@ -11,10 +11,10 @@
 ##############################################################################
 
 {
-    'name': 'Supplier Refund Stock Movement',
+    'name': 'Supplier Refund Stock Movement - Early Bird Special Price',
     'version': '0.1',
     'author': 'Designcomplex',
-    'price': 49.00,
+    'price': 29.00,
     'license': 'LGPL-3',
     'currency': 'EUR',
     "category": "mrp",
