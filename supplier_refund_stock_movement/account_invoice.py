@@ -17,7 +17,7 @@ class account_invoice(models.Model):
     
     stock_move_ids = fields.One2many('stock.move','refund_invoice_id',string='Stock Moves')
     move_count = fields.Integer(string="Stock Moves")
-        
+    
     @api.multi
     def view_related_stock_moves(self):
         stock_moves = []
@@ -36,9 +36,5 @@ class account_invoice(models.Model):
     
     @api.multi
     def invoice_open_two(self):
-        account_invoice_obj = self.pool.get('account.invoice') 
-        res = account_invoice_obj.action_date_assign(self._cr, self._uid, self._ids[0],self._context)
-        res = super(account_invoice, self).action_move_create()
-        res = account_invoice_obj.action_number(self._cr, self._uid, self._ids[0],self._context)
-        res = account_invoice_obj.invoice_validate(self._cr, self._uid, self._ids[0],self._context)
-        return res
+        for inv in self:
+            return self.signal_workflow('invoice_open')
