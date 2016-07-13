@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#   Designcomplex - Thomas Klosinsky - all rights reserved.
-#   Copyright 2016
-#   www.designcomplex.de - thomas@designcomplex.de
-#   This software is licensed unter LGPL-3 and is distributed without
-#   warranty
-#   For further information see <http://www.gnu.org/licenses/>.
+#    Designcomplex, Thomas Klosinsky - All Rights Reserved.
+#    Copyright (C) 2016 - http://designcomplex.de
+#
+#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 

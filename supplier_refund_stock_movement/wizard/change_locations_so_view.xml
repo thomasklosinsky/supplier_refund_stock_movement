@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+   <record id="view_wizard_change_so_locations" model="ir.ui.view">
+    	<field name="name">view.wizard.change.so.locations</field>
+    	<field name="model">change.company.so.wizard</field>
+    	<field name="arch" type="xml">
+			<form string="Change Locations">
+				<group>
+					<field name="company_id" on_change="on_change_company_so(company_id)"/>
+					<field name="so_ids">
+						<tree string="Draft Sale Orders">
+							<field name="customer_id"/>
+							<field name="so_id"/>
+						</tree>
+					</field>
+					<field name="dest_comp_id"/>
+				</group>
+				<button name="change_location_so" type="object" string="Change Company" class="oe_highlight"/>
+				<button string="Cancel" class="btn-default" special="cancel"/>
+			</form>
+		</field>
+    </record>
+    
+    <record id="action_open_change_company_so_wizard" model="ir.actions.act_window">
+	    <field name="name">Change Company Wizard</field>
+	    <field name="res_model">change.company.so.wizard</field>
+	    <field name="view_type">form</field>
+	    <field name="view_mode">form</field>
+	    <field name="view_id" ref="view_wizard_change_so_locations"/>
+	    <field name="target">new</field>
+	</record>     
+    <menuitem name="Change Company"
+            id="menu_change_company_so" parent="base.menu_base_partner" sequence="10"/>
+    
+    <menuitem name="Change Company Wizard"
+            id="menu_change_company_wizard_so" parent="menu_change_company_so" action="action_open_change_company_so_wizard" sequence="11"/>
+    
+    </data>
+</openerp>
