@@ -10,24 +10,14 @@
 ##############################################################################
 
 {
-    'name': 'Stock Movement',
+    'name': 'Suppler Returns Stock Movement',
     'version': '0.1',
-    'author': 'Teckzilla Solutions',
+    'author': 'Designcomplex',
     "category": "mrp",
-    "depends": ['base','purchase','stock','account','sale'],
-    'data': [
-            'wizard/stock_locations_view.xml',
-            'wizard/change_locations_view.xml',
-            'wizard/change_locations_so_view.xml',
-            'account_invoice_view.xml',
-            'stock_move_view.xml',
-    ],
-    'demo_xml': [],
-    'active': False,
-    'installable': True,
-    'application': True,
-}
-creating a Supplier refund.
+    'price': 19.00,
+    'currency': 'EUR',
+    'description': """
+    This module adds possibility to directly make a stock movement when creating a Supplier refund.
     Created for the purpose of sending goods back to the supplier without a preceding Purchase Order,
     this module fits very well for other purposes too where an easy and fast creation of sending back goods to the supplier with account
     balance and stock movement is needed.
@@ -41,6 +31,8 @@ creating a Supplier refund.
     "depends": ['base','purchase','stock','account','sale'],
     'data': [
             'wizard/stock_locations_view.xml',
+            'wizard/change_locations_view.xml',
+            'wizard/change_locations_so_view.xml',
             'account_invoice_view.xml',
             'stock_move_view.xml',
     ],
