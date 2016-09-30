@@ -10,7 +10,7 @@
 ##############################################################################
 
 {
-    'name': 'Suppler Refund Stock Movement',
+    'name': 'Supplier Refund Stock Movement',
     'version': '0.1',
     'author': 'Designcomplex',
     "category": "mrp",
